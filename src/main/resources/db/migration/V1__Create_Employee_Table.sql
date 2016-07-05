@@ -1,0 +1,1 @@
+create table employee(ID int auto_increment,emp_name varchar(50),age int,gender varchar(30),primary Key(ID));

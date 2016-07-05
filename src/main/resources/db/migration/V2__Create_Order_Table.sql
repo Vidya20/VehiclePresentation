@@ -1,0 +1,1 @@
+create table orders(ID int auto_increment,order_name varchar(40),description varchar(120),Primary Key(ID));
