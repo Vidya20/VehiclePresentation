@@ -286,7 +286,7 @@
 				
 				<configuration>
 		<driver>com.mysql.jdbc.Driver</driver>
-    	<url>jdbc:mysql://13.76.133.38:3306/emporderdb</url>
+    	<url>jdbc:mysql://mysql.southeastasia.cloudapp.azure.com:3306/emporderdb</url>
     	<user>root</user>
     	<password>welcome123</password>
 				</configuration>
@@ -384,5 +384,5 @@
 		</plugins>
 		<finalName>${project.artifactId}</finalName>
 	</build>
-	<version>10.8.13</version>
+	<version>10.8.14</version>
 </project>
