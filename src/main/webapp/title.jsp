@@ -17,6 +17,5 @@
 
 	<!-- <div style="margin-left: 80%;margin-top: -50px;font-family: monospace;">
 </div> -->
-	<img alt="" src="img/logo2.jpg"></img>
 </body>
 </html>

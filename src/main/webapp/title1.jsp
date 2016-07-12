@@ -16,6 +16,5 @@
 <body>
 	<!-- <div style="margin-left: 80%;margin-top: -50px;font-family: monospace;">
 </div> -->
-	<img src="img/finalcar1.jpg"></img>
 </body>
 </html>
