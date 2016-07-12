@@ -10,13 +10,13 @@
 <body>
 
 	<center>
-		<br /> <br /> <img alt="" src="img/logo2.jpg"> <br /> <br />
+		<br /> <br /><br /> <br />
 		<br />
 		<h1 style="color: #C71585">Welcome to Demo : Vehicle Rental
 			Application.</h1>
 
 		<br /> <br /> <a href="index.jsp"><h3>Continue.........................</h3></a> <br />
-		<h1>Version 10.9.2</h1>
+		<h1>Version 10.9.3</h1>
 	</center>
 </body>
 </html>
