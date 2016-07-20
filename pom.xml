@@ -15,11 +15,11 @@
 		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
 	<pluginRepositories>
-	  <pluginRepository>
-        <id>sonatype-oss-snapshots</id>
-        <name>Sonatype OSS Snapshots</name>
-        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-  	</pluginRepository>
+		<pluginRepository>
+			<id>sonatype-oss-snapshots</id>
+			<name>Sonatype OSS Snapshots</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+		</pluginRepository>
 	</pluginRepositories>
 	<dependencies>
 
@@ -42,23 +42,23 @@
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-server</artifactId>
 			<version>1.19</version>
-		</dependency> 
-		 <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-            <version>3.2.1</version>
-        </dependency>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>3.2.1</version>
+		</dependency>
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-core</artifactId>
 			<version>1.19</version>
 		</dependency>
 		<dependency>
-	<groupId>com.sun.jersey</groupId>
-	<artifactId>jersey-servlet</artifactId>
-	<version>1.19</version>
-</dependency>
-<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-servlet</artifactId>
+			<version>1.19</version>
+		</dependency>
+		<dependency>
 			<groupId>com.wordnik</groupId>
 			<artifactId>swagger-jaxrs_2.10</artifactId>
 			<version>1.3.12</version>
@@ -261,6 +261,15 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<port>9090</port>
+				</configuration>
+			</plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.3</version>
@@ -278,17 +287,19 @@
 				<artifactId>flyway-maven-plugin</artifactId>
 				<version>3.2.1</version>
 				<executions>
-				<execution>
-				<goals>
-				<goal>migrate</goal></goals>
-				
-				</execution></executions>
-				
+					<execution>
+						<goals>
+							<goal>migrate</goal>
+						</goals>
+
+					</execution>
+				</executions>
+
 				<configuration>
-		<driver>com.mysql.jdbc.Driver</driver>
-    	<url>jdbc:mysql://13.76.132.236:3306/emporderdb</url>
-    	<user>root</user>
-    	<password>welcome123</password>
+					<driver>com.mysql.jdbc.Driver</driver>
+					<url>jdbc:mysql://13.76.132.236:3306/emporderdb</url>
+					<user>root</user>
+					<password>welcome123</password>
 				</configuration>
 				<dependencies>
 					<dependency>
@@ -298,63 +309,19 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-			<plugin>
-			
-				<groupId>net.wouterdanes.docker</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<version>5.0.0</version>
-				<executions>
-					<execution>
-						<id>build</id>
-						<goals>
-							<goal>build-images</goal>
-						</goals>
-						<configuration>
-							<images>
-								<image>
-									<id>${project.artifactId}</id>
-									<dockerFile>${project.basedir}/src/main/docker/Dockerfile</dockerFile>
-									<keep>true</keep>
-									<artifacts>
-										<artifact>
-											<file>${project.basedir}/target/${project.artifactId}.war</file>
-										</artifact>
-										<artifact>
-											<file>${project.basedir}/src/main/docker/start_up.sh</file>
-										</artifact>
-									</artifacts>
-									<nameAndTag>nijisha/mt-mvn-vr-presentation:${project.version}</nameAndTag>
-									<!-- <registry>registry.hub.docker.com</registry> -->
-									<push>true</push>
-								</image>
-							</images>
-						</configuration>
-					</execution>
-					 <execution>
-						<id>tag</id>
-						<goals>
-							<goal>tag-images</goal>
-						</goals>
-						<configuration>
-							<images>
-								<image>
-									<id>${project.artifactId}</id>
-									<tags>
-										<tag>nijisha/mt-mvn-vr-presentation:latest</tag>
-									</tags>
-									<push>true</push>
-								</image>
-							</images>
-						</configuration>
-					</execution> 
-					<execution>
-						<id>push</id>
-						<goals>
-							<goal>push-images</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+			<plugin> <groupId>net.wouterdanes.docker</groupId> <artifactId>docker-maven-plugin</artifactId> 
+				<version>5.0.0</version> <executions> <execution> <id>build</id> <goals> 
+				<goal>build-images</goal> </goals> <configuration> <images> <image> <id>${project.artifactId}</id> 
+				<dockerFile>${project.basedir}/src/main/docker/Dockerfile</dockerFile> <keep>true</keep> 
+				<artifacts> <artifact> <file>${project.basedir}/target/${project.artifactId}.war</file> 
+				</artifact> <artifact> <file>${project.basedir}/src/main/docker/start_up.sh</file> 
+				</artifact> </artifacts> <nameAndTag>nijisha/mt-mvn-vr-presentation:${project.version}</nameAndTag> 
+				<push>true</push> </image> </images> </configuration> </execution> <execution> 
+				<id>tag</id> <goals> <goal>tag-images</goal> </goals> <configuration> <images> 
+				<image> <id>${project.artifactId}</id> <tags> <tag>nijisha/mt-mvn-vr-presentation:latest</tag> 
+				</tags> <push>true</push> </image> </images> </configuration> </execution> 
+				<execution> <id>push</id> <goals> <goal>push-images</goal> </goals> </execution> 
+				</executions> </plugin>
 			<plugin>
 				<artifactId>maven-deploy-plugin</artifactId>
 				<version>2.8.1</version>
@@ -384,5 +351,5 @@
 		</plugins>
 		<finalName>${project.artifactId}</finalName>
 	</build>
-	<version>10.9.5</version>
+	<version>10.9.6</version>
 </project>
