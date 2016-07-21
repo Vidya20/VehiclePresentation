@@ -21,9 +21,27 @@
 			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
 		</pluginRepository>
 	</pluginRepositories>
-	
+	<repositories>
+   <repository>
+      <id>central</id>
+      <name>Central</name>
+      <url>http://repo1.maven.org/maven2</url>
+   </repository>
+</repositories>
 	<dependencies>
- 
+   <dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>applicationinsights-web</artifactId>
+    <!-- or applicationinsights-core for bare API -->
+    <version>[1.0,)</version>
+  </dependency>
+  <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+    <version>4.2.3</version>
+</dependency>
+  
 		<dependency>
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
@@ -353,5 +371,5 @@
 		</plugins>
 		<finalName>${project.artifactId}</finalName>
 	</build>
-	<version>10.9.9</version>
+	<version>10.9.10</version>
 </project>
