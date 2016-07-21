@@ -35,7 +35,7 @@ private Connection con;
 		try{
 			con=DBUtil.getConnection();
 			logger.info("Inside the createEmployee method");
-			String sql ="insert into employee(given_name,age,gender) values(?,?,?)";
+			String sql ="insert into employee(full_name,age,gender) values(?,?,?)";
 			stmt=con.prepareStatement(sql);
 			stmt.setString(1, employee.getName());
 			stmt.setInt(2, employee.getAge());
@@ -81,12 +81,12 @@ private Connection con;
 	public List<Employee> getEmployeeDetails() throws FetchException {
 		List<Employee> result = new ArrayList<>();
 		try(Connection con=DBUtil.getConnection();){
-			String sql ="SELECT given_name,age,gender FROM employee";
+			String sql ="SELECT full_name,age,gender FROM employee";
 			stmt = con.prepareStatement(sql);
 			rs = stmt.executeQuery();
 			while(rs.next()){
 				Employee employee = new Employee();
-				employee.setName(rs.getString("given_name"));
+				employee.setName(rs.getString("full_name"));
 				employee.setAge(rs.getInt("age"));
 				employee.setGender(rs.getString("gender"));
 				result.add(employee);
