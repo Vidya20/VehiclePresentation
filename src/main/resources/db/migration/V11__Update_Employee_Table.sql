@@ -1,1 +1,1 @@
-alter table employee change column full_name given_name varchar(50);
+alter table employee change column given_name full_name varchar(50);
