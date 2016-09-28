@@ -1,0 +1,1 @@
+alter table employee change column name full_name varchar(50);
