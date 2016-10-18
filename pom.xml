@@ -301,7 +301,7 @@
 					</webResources>
 				</configuration>
 			</plugin>
-			<plugin>
+		<plugin>
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-maven-plugin</artifactId>
 				<version>3.2.1</version>
@@ -371,5 +371,5 @@
 		</plugins>
 		<finalName>${project.artifactId}</finalName>
 	</build>
-	<version>10.9.37</version>
+	<version>10.9.38</version>
 </project>
