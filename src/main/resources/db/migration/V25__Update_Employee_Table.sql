@@ -1,0 +1,1 @@
+alter table employee change column last_name emp_name varchar(50);
