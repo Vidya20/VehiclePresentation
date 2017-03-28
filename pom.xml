@@ -328,19 +328,61 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-			<plugin> <groupId>net.wouterdanes.docker</groupId> <artifactId>docker-maven-plugin</artifactId> 
-				<version>5.0.0</version> <executions> <execution> <id>build</id> <goals> 
-				<goal>build-images</goal> </goals> <configuration> <images> <image> <id>${project.artifactId}</id> 
-				<dockerFile>${project.basedir}/src/main/docker/Dockerfile</dockerFile> <keep>true</keep> 
-				<artifacts> <artifact> <file>${project.basedir}/target/${project.artifactId}.war</file> 
-				</artifact> <artifact> <file>${project.basedir}/src/main/docker/start_up.sh</file> 
-				</artifact> </artifacts> <nameAndTag>nijisha/mt-mvn-vr-presentation:${project.version}</nameAndTag> 
-				<push>true</push> </image> </images> </configuration> </execution> <execution> 
-				<id>tag</id> <goals> <goal>tag-images</goal> </goals> <configuration> <images> 
-				<image> <id>${project.artifactId}</id> <tags> <tag>nijisha/mt-mvn-vr-presentation:latest</tag> 
-				</tags> <push>true</push> </image> </images> </configuration> </execution> 
-				<execution> <id>push</id> <goals> <goal>push-images</goal> </goals> </execution> 
-				</executions> </plugin>
+			<plugin>
+				<groupId>net.wouterdanes.docker</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>5.0.0</version>
+				<executions>
+					<execution>
+						<id>build</id>
+						<goals>
+							<goal>build-images</goal>
+						</goals>
+						<configuration>
+							<images>
+								<image>
+									<id>${project.artifactId}</id>
+									<dockerFile>${project.basedir}/src/main/docker/Dockerfile</dockerFile>
+									<keep>true</keep>
+									<artifacts>
+										<artifact>
+											<file>${project.basedir}/target/${project.artifactId}.war</file>
+										</artifact>
+										<artifact>
+											<file>${project.basedir}/src/main/docker/start_up.sh</file>
+										</artifact>
+									</artifacts>
+									<nameAndTag>nijisha/mt-mvn-vr-presentation:${project.version}</nameAndTag>
+									<push>true</push>
+								</image>
+							</images>
+						</configuration>
+					</execution>
+					<execution>
+						<id>tag</id>
+						<goals>
+							<goal>tag-images</goal>
+						</goals>
+						<configuration>
+							<images>
+								<image>
+									<id>${project.artifactId}</id>
+									<tags>
+										<tag>nijisha/mt-mvn-vr-presentation:latest</tag>
+									</tags>
+									<push>true</push>
+								</image>
+							</images>
+						</configuration>
+					</execution>
+					<execution>
+						<id>push</id>
+						<goals>
+							<goal>push-images</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 				
 			<plugin>
 				<artifactId>maven-deploy-plugin</artifactId>
@@ -371,5 +413,5 @@
 		</plugins>
 		<finalName>${project.artifactId}</finalName>
 	</build>
-	<version>10.9.47</version>
+	<version>10.9.48</version>
 </project>
