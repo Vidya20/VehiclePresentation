@@ -328,7 +328,7 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
 				<groupId>net.wouterdanes.docker</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>5.0.0</version>
@@ -382,7 +382,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 				
 			<plugin>
 				<artifactId>maven-deploy-plugin</artifactId>
