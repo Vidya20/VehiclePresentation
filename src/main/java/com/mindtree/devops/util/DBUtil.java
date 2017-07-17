@@ -14,7 +14,7 @@ public final class DBUtil implements AutoCloseable{
     private static final Logger logger = Logger.getLogger(EmployeeController.class);
     
     private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://13.76.132.236:3306/emporderdb";
+    private static final String URL = "jdbc:mysql://mysql.southeastasia.cloudapp.azure.com:3306/emporderdb";
     private static final String USER = "root";
     private static final String PWD = "welcome123";
 
